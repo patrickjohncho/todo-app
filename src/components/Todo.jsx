@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ListItem from "./ListItem";
+
 export default function Todo() {
     //Create state and setter for text field
     const [todo, setTodo] = useState("");
@@ -29,7 +31,10 @@ export default function Todo() {
         <form onSubmit={handleSubmit}>
             <input value={todo} type="text" onChange={handleChange}></input>
             <button type="submit">Add</button>
-        </form>   
+        </form>
+        {todoList.map((item)=>(
+            <ListItem key={item} name={item}>List Item</ListItem>
+        ))}
     </div>
     );
 }
